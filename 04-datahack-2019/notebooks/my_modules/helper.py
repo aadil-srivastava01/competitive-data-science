@@ -3,6 +3,18 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+def info_df(df):
+    """
+    creates a dataframe that returns the number of uniques and nulls for each column
+    
+    input: dataframe
+    output: dataframe of shape 2*number of columns
+    """
+    return pd.DataFrame({
+        "uniques": df.nunique(),
+        "nulls": df.isnull().sum()
+    }).T
+
 def category_freq(dataframe, colname):
     """
     plots a univariate plot for a categorical variable
